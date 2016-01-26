@@ -1,0 +1,17 @@
+apply plugin: 'idea'
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+repositories {
+  mavenLocal()
+  mavenCentral()
+}
+
+dependencies {
+  providedCompile('javax.servlet:servlet-api:2.5')
+  testCompile('junit:junit:4.12')
+}
+
+task wrapper(type: Wrapper) {
+  gradleVersion = '2.3'
+}
