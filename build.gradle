@@ -1,6 +1,16 @@
+buildscript {
+  repositories {
+    mavenCentral()
+  }
+
+  dependencies {
+    classpath('org.akhikhl.gretty:gretty:+')
+  }
+}
+
+apply plugin: 'org.akhikhl.gretty'
 apply plugin: 'idea'
 apply plugin: 'war'
-apply plugin: 'jetty'
 
 repositories {
   mavenLocal()
@@ -8,7 +18,9 @@ repositories {
 }
 
 dependencies {
-  providedCompile('javax.servlet:servlet-api:2.5')
+  providedCompile('javax.servlet:javax.servlet-api:3.1.0')
+  compile('com.twilio.sdk:twilio-java-sdk:5.8.0')
+  compile('com.google.code.gson:gson:2.5')
   testCompile('junit:junit:4.12')
 }
 
