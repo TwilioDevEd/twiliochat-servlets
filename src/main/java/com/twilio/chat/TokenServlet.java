@@ -1,10 +1,11 @@
 package com.twilio.chat;
 
 import com.google.gson.Gson;
+import com.google.inject.Singleton;
 import com.twilio.sdk.auth.AccessToken;
 import com.twilio.sdk.auth.IpMessagingGrant;
 
-import javax.servlet.annotation.WebServlet;
+import javax.inject.Inject;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -13,8 +14,10 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/token")
+@Singleton
 public class TokenServlet extends HttpServlet {
+
+    @Inject private AppConfig appConfig;
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
@@ -28,16 +31,16 @@ public class TokenServlet extends HttpServlet {
         // Create IP messaging grant
         IpMessagingGrant grant = new IpMessagingGrant();
         grant.setEndpointId(endpointId);
-        grant.setServiceSid(System.getenv("TWILIO_IPM_SERVICE_SID"));
+        grant.setServiceSid(appConfig.getTwilioIPMServiceSID());
 
         // Create access token
         AccessToken token = new AccessToken.Builder(
-                System.getenv("TWILIO_ACCOUNT_SID"),
-                System.getenv("TWILIO_API_KEY"),
-                System.getenv("TWILIO_API_SECRET")
+                appConfig.getTwilioAccountSID(),
+                appConfig.getTwilioAPIKey(),
+                appConfig.getTwilioAPISecret()
         ).identity(identity).grant(grant).build();
 
-        response.setContentType("appliction/json");
+        response.setContentType("application/json");
 
         Map<String, String> json = new HashMap<>();
         json.put("identity", identity);
@@ -54,4 +57,5 @@ public class TokenServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
 }

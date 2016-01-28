@@ -20,6 +20,7 @@ repositories {
 dependencies {
   providedCompile('javax.servlet:javax.servlet-api:3.1.0')
   compile('com.twilio.sdk:twilio-java-sdk:5.8.0')
+  compile('com.google.inject.extensions:guice-servlet:4.0')
   compile('com.google.code.gson:gson:2.5')
   testCompile('junit:junit:4.12')
 }
