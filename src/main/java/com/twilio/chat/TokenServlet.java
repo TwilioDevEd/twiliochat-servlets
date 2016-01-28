@@ -17,7 +17,15 @@ import java.util.Map;
 @Singleton
 public class TokenServlet extends HttpServlet {
 
-    @Inject private AppConfig appConfig;
+    private final AppConfig appConfig;
+
+    @Inject
+    public TokenServlet(AppConfig appConfig) {
+        this.appConfig = appConfig;
+        if (appConfig.isIncomplete()) {
+            throw new IncompleteConfigException(appConfig);
+        }
+    }
 
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) {
