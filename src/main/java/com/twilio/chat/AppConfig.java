@@ -9,7 +9,6 @@ import java.util.stream.Stream;
 
 public class AppConfig {
 
-
     private final Map<EnvironmentVariable, Optional<String>> configurations;
 
     enum EnvironmentVariable {
