@@ -17,7 +17,7 @@ public class TwilioTokenCreator {
         }
     }
 
-    Map<String, String> generateToken(String identity, String endpointId) {
+    String generateToken(String identity, String endpointId) {
         IpMessagingGrant grant = new IpMessagingGrant();
         grant.setEndpointId(endpointId);
         grant.setServiceSid(appConfig.getTwilioIPMServiceSID());
@@ -28,9 +28,6 @@ public class TwilioTokenCreator {
                 appConfig.getTwilioAPISecret()
         ).identity(identity).grant(grant).build();
 
-        Map<String, String> json = new HashMap<>();
-        json.put("identity", identity);
-        json.put("token", token.toJWT());
-        return json;
+        return token.toJWT();
     }
 }

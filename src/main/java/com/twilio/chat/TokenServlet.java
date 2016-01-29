@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Map;
 
 @Singleton
@@ -31,9 +32,11 @@ public class TokenServlet extends HttpServlet {
             String appName = "TwilioChatDemo";
             String endpointId = appName + ":" + identity + ":" + device;
 
-            // Create IP messaging grant
-            Map<String, String> json = tokenCreator.generateToken(identity, endpointId);
+            String  generatedToken = tokenCreator.generateToken(identity, endpointId);
 
+            Map<String, String> json = new HashMap<>();
+            json.put("identity", identity);
+            json.put("token", generatedToken);
             renderJson(response, json);
         }
 
