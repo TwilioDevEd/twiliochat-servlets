@@ -3,13 +3,13 @@ package com.twilio.chat;
 import com.twilio.sdk.auth.AccessToken;
 import com.twilio.sdk.auth.IpMessagingGrant;
 
-import java.util.HashMap;
-import java.util.Map;
+import javax.inject.Inject;
 
 public class TwilioTokenCreator {
 
     private final AppConfig appConfig;
 
+    @Inject
     public TwilioTokenCreator(AppConfig appConfig) {
         this.appConfig = appConfig;
         if (appConfig.isIncomplete()) {
