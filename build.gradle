@@ -29,3 +29,15 @@ dependencies {
 task wrapper(type: Wrapper) {
   gradleVersion = '2.3'
 }
+
+task npmTestsInstall(type: Exec) {
+  workingDir 'src/main/webapp'
+  commandLine 'npm', 'install' 
+}
+
+task testJs(type: Exec, dependsOn: npmTestsInstall) {
+  workingDir 'src/main/webapp'
+  commandLine 'npm', 'test'
+}
+
+check.dependsOn testJs
