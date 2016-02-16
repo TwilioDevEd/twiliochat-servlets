@@ -48,7 +48,12 @@ a service like [ngrok](https://ngrok.com/).
 ### Dependencies
 
 This application uses this Twilio helper library:
-* [twilio-php](https://www.twilio.com/docs/php/install)
+* [twilio-java helper library](https://www.twilio.com/docs/java/install)
+* [Java Servlet API](http://docs.oracle.com/javaee/6/tutorial/doc/bnafd.html)
+* [Gradle Gretty plugin](http://akhikhl.github.io/gretty-doc/)
+* [Guice Dependency Injection Framework](https://github.com/google/guice)
+
+
 
 ### Run the tests
 
