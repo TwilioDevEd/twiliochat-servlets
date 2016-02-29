@@ -11,6 +11,7 @@
   width:100%;
 }</style><link rel="shortcut icon" href="//twilio.com/bundles/marketing/img/favicons/favicon.ico"><link rel="apple-touch-icon" href="//twilio.com/bundles/marketing/img/favicons/favicon_57.png"><link rel="apple-touch-icon" sizes="72x72" href="//twilio.com/bundles/marketing/img/favicons/favicon_72.png"><link rel="apple-touch-icon" sizes="114x114" href="//twilio.com/bundles/marketing/img/favicons/favicon_114.png"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"><link rel="stylesheet" href="viewsaurus.css"></head><body><div class="wrapper"><div id="viewsaurus" data-title="Twilio Chat"><div class="saurus-panes"><div class="saurus-prose"><div class="saurus-prose-header"><div class="title-outer"><span class="step-title">Twilio Chat</span></div></div><div class="saurus-nav-buttons"><div class="saurus-nav-button nav-overview"><div class="saurus-nav-button-inner"><i class="fa fa-fw fa-list"></i></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-previous"><div class="saurus-nav-button-inner"><a href=""> <i class="fa fa-fw fa-play fa-rotate-180"></i></a></div><div class="nav-divider"></div></div><div class="saurus-nav-button nav-next clickable"><div class="saurus-nav-button-inner"><a href="#1"> <i class="fa fa-fw fa-play"></i></a></div></div><div class="saurus-next-title"><span class="next-title-inner"></span></div></div><div class="saurus-progress-bar"></div><div class="saurus-start"><p>Learn to implement a simple chat application using Twilio IP Messaging Client</p><a href="#0">Start Tutorial</a></div><div class="saurus-content"><div data-title="Twilio Chat" class="chapter"><div data-title="Introduction" data-file="src/main/java/com/twilio/chat/TokenServlet.java" class="step"><h2 id="introduction">Introduction</h2>
 <p>Ready to implement a chat application using Twilio IP Messaging Client?</p>
+<p><img src="http://howtodocs.s3.amazonaws.com/twiliochat-screenshot.jpg" alt="TwilioChat Screenshot"></p>
 <p>This application allow users to exchange messages through different channels,
 using the Twilio IP Messaging API. On this example, we&#39;ll show how to use 
 this API capabilities to manage channels and their usages.</p>
@@ -35,7 +36,7 @@ method <code>ToJWT()</code> to return its string representation.</p>
 <li><a href="//www.twilio.com/docs/api/rest/access-tokens">Twilio API Access Tokens</a></li>
 </ul>
 </div><div data-title="Token Generation Controller" data-file="src/main/java/com/twilio/chat/TokenServlet.java" data-highlight="25-43" class="step"><h2 id="token-generation-controller">Token Generation Controller</h2>
-<p>On our controller we expose the endpoint responsible to provide a valid
+<p>On our controller we expose the endpoint responsible for providing a valid
 token. Using the information provided as parameters:</p>
 <ul>
 <li><code>device</code>: identifies the device being used.  </li>
@@ -45,12 +46,12 @@ token. Using the information provided as parameters:</p>
 and return it in a JSON format to be used for our client.</p>
 </div><div data-title="Initializing the Client" data-file="src/main/webapp/js/twiliochat.js" data-highlight="81-88,91-93" class="step"><h2 id="initializing-the-ip-messaging-client">Initializing the IP Messaging Client</h2>
 <p>On our client, we fetch a new Token using a POST request to our endpoint.</p>
-<p>And with the token we can instantiate a new <code>Twilio.AccessManager</code> that
-it&#39;s used to initialize our <code>Twilio.IPMessaging.Client</code>.</p>
+<p>With the token we can create a new <code>Twilio.AccessManager</code> that
+is used to initialize our <code>Twilio.IPMessaging.Client</code>.</p>
 </div><div data-title="Getting the Channel List" data-file="src/main/webapp/js/twiliochat.js" data-highlight="124-131" class="step"><h2 id="getting-the-channel-list">Getting the Channel List</h2>
-<p>After initializing the client, we can now call it&#39;s method <code>getChannels</code>
-to retrieve all visible channels. The method returns a promise as a
-result that we use to show the list of channels retrieved on the UI.</p>
+<p>After initializing the client, we can call its method <code>getChannels</code> to
+retrieve all visible channels. The method returns a promise which we use
+to show the list of channels retrieved on the UI.</p>
 <hr>
 <p><strong> See Also </strong></p>
 <ul>
@@ -65,8 +66,7 @@ invitations.</p>
 <p>Notice we set a unique name for the general channel as we don&#39;t want to
 create a new general channel every time we start the application.</p>
 </div><div data-title="Listen to Channel Events" data-file="src/main/webapp/js/twiliochat.js" data-highlight="161-165" class="step"><h2 id="listen-to-channel-events">Listen to Channel Events</h2>
-<p>With access to the channel objects we can use them to listen to
-a series of events. In our case, we&#39;re setting listeners to the
+<p>Next we listen for channel events. In our case, we&#39;re setting listeners to the
 following events:</p>
 <ul>
 <li><code>messageAdded</code>: When another member sends a message to the channel you are connected to.</li>
@@ -93,13 +93,12 @@ following events:</p>
 <li><a href="https://media.twiliocdn.com/sdk/rtc/js/ip-messaging/releases/0.9.2/docs/api/Client.html">IP Messaging Client API</a></li>
 </ul>
 </div><div data-title="Creating a Channel" data-file="src/main/webapp/js/twiliochat.js" data-highlight="60-68" class="step"><h2 id="creating-a-channel">Creating a Channel</h2>
-<p>To create a new channel, the user clicks on the &quot;+ Channel&quot; link. That we&#39;ll show
-an input text field where it&#39;s possible to type the name of the new channel.
-The only restriction here, is that the user can&#39;t create a channel called
-&quot;General Channel&quot;. Other than that, creating a channel is as simple as calling
-<code>createChannel</code> with an object that has the <code>friendlyName</code> key. You can create a channel
-with more options though, see a list of the options
-<a href="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/releases/0.9.2/docs/api/Client.html#createChannel">here</a>.</p>
+<p>When a user clicks on the &quot;+ Channel&quot; link we&#39;ll show an input text
+field where it&#39;s possible to type the name of the new channel. Creating
+a channel is as simple as calling <code>createChannel</code> with an object that
+has the <code>friendlyName</code> key. You can create a channel with more options
+listed <a href="//media.twiliocdn.com/sdk/rtc/js/ip-
+messaging/releases/0.9.2/docs/api/Client.html#createChannel">here</a>.</p>
 <hr>
 <p><strong> See Also </strong></p>
 <ul>
@@ -114,26 +113,25 @@ to the selected channel and setting up the <code>selectedChannel</code>.</p>
 lets the user delete the channel they are currently joined to through the
 &quot;delete current channel&quot; link. The only thing you need to do to
 actually delete the channel from Twilio, is call the <code>delete</code> method
-on the channel you are trying to delete. As other methods on the `Channel&#39;
-object, It&#39;ll return a promise where you can set function that is going
-to handle successes.</p>
+on the channel you are trying to delete. Like other methods on the <code>Channel</code>
+object, it&#39;ll return a promise where you can set the success handler.</p>
 <hr>
 <p><strong> See Also </strong></p>
 <ul>
 <li><a href="//media.twiliocdn.com/sdk/rtc/js/ip-messaging/releases/0.9.2/docs/api/Channel.html#delete">Channel API: Create a Channel</a></li>
 </ul>
 </div><div data-title="Where to Next?" class="step"><h2 id="where-to-next-">Where to Next?</h2>
-<p>That&#39;s it! We&#39;ve just implemented a simple chat application for C# using
-ASP.NET MVC. If you are a C# developer working with Twilio,  you might want
+<p>That&#39;s it! We&#39;ve just implemented a simple chat application for Java using
+Servlet API. If you are a Java developer working with Twilio, you might want
 to check out these other tutorials:</p>
-<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/csharp/mvc">SMS and MMS Notifications</a></p>
+<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/server-notifications/java/servlets">SMS and MMS Notifications</a></p>
 <p>Never miss another server outage. Learn how to build a server notification
 system that will alert all administrators via SMS when a server outage occurs.</p>
-<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/workflow-automation/csharp/mvc">Workflow Automation</a></p>
+<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/workflow-automation/java/servlets">Workflow Automation</a></p>
 <p>Increase your rate of response by automating the workflows that are key
 to your business. In this tutorial, learn how to build a ready-for-scale
 automated SMS workflow, for a vacation rental company.</p>
-<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/masked-numbers/csharp/mvc">Masked Phone Numbers</a></p>
+<p><a href="https://www.twilio.com/docs/tutorials/walkthrough/masked-numbers/java/servlets">Masked Phone Numbers</a></p>
 <p>Protect your users&#39; privacy by anonymously connecting them with Twilio
 Voice and SMS. Learn how to create disposable phone numbers on-demand,
 so two users can communicate without exchanging personal information.</p>
