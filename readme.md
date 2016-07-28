@@ -1,7 +1,7 @@
 # twiliochat-servlets
 [![Build Status](https://travis-ci.org/TwilioDevEd/twiliochat-servlets.svg?branch=master)](https://travis-ci.org/TwilioDevEd/twiliochat-servlets)
 
-Laravel implementation of Twilio Chat
+Java implementation of Twilio Chat
 
 ### Run the application
 
