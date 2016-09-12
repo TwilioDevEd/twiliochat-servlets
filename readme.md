@@ -1,7 +1,11 @@
-# twiliochat-servlets
+<a href="https://www.twilio.com">
+  <img src="https://static0.twilio.com/marketing/bundles/marketing/img/logos/wordmark-red.svg" alt="Twilio" width="250" />
+</a>
+
+# twiliochat with Servlets
 [![Build Status](https://travis-ci.org/TwilioDevEd/twiliochat-servlets.svg?branch=master)](https://travis-ci.org/TwilioDevEd/twiliochat-servlets)
 
-Laravel implementation of Twilio Chat
+Java implementation of Twilio Chat
 
 ### Run the application
 
@@ -67,3 +71,9 @@ This application uses this Twilio helper library:
    ```bash
    $ cd src/main/webapp/ && npm install && npm test
    ```
+
+## Meta
+
+* No warranty expressed or implied. Software is as is. Diggity.
+* [MIT License](http://www.opensource.org/licenses/mit-license.html)
+* Lovingly crafted by Twilio Developer Education.

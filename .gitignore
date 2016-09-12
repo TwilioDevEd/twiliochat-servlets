@@ -7,3 +7,5 @@ build/
 *.ipr
 *.iws
 node_modules/
+.env
+.idea/
