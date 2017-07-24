@@ -19,10 +19,10 @@ Java implementation of Twilio Chat
   You can find your `TWILIO_ACCOUNT_SID` in your
   [Twilio Account Settings](https://www.twilio.com/user/account/settings).
   For `TWILIO_API_KEY` and `TWILIO_API_SECRET` you need to go
-  [here](https://www.twilio.com/user/account/ip-messaging/dev-tools/api-keys). There
-  youl'll be able to create a new API key obtaining the two required values.
-  For `TWILIO_IPM_SERVICE_SID` you can go [here](https://www.twilio.com/user/account/ip-messaging/services),
-  where you must create an IP Messaging Service. When the service is created you'll
+  [here](https://www.twilio.com/console/dev-tools/api-keys). There
+  youl'll be able to create a new API key obtaining the two required values, `SID` and `SECRET`.
+  For `TWILIO_IPM_SERVICE_SID` you can go [here](https://www.twilio.com/console/chat/dashboard),
+  where you must create a Programmable Chat Messaging Service. When the service is created you'll
   have access to the service's SID.
 1. Load the configuration file:
 
