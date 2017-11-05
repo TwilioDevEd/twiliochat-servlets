@@ -17,7 +17,7 @@ public class TwilioTokenCreator {
     }
   }
 
-  String generateToken(String identity, String endpointId) {
+  public String generateToken(String identity, String endpointId) {
     IpMessagingGrant grant = new IpMessagingGrant();
     grant.setEndpointId(endpointId);
     grant.setServiceSid(appConfig.getTwilioIPMServiceSID());
