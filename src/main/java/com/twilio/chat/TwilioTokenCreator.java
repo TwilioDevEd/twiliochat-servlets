@@ -3,7 +3,7 @@ package com.twilio.chat;
 import javax.inject.Inject;
 
 import com.twilio.jwt.accesstoken.AccessToken;
-import com.twilio.jwt.accesstoken.IpMessagingGrant;
+import com.twilio.jwt.accesstoken.ChatGrant;
 
 public class TwilioTokenCreator {
 
@@ -18,9 +18,9 @@ public class TwilioTokenCreator {
   }
 
   String generateToken(String identity, String endpointId) {
-    IpMessagingGrant grant = new IpMessagingGrant();
+    ChatGrant grant = new ChatGrant();
     grant.setEndpointId(endpointId);
-    grant.setServiceSid(appConfig.getTwilioIPMServiceSID());
+    grant.setServiceSid(appConfig.getTwilioChatServiceSID());
 
     AccessToken token = new AccessToken.Builder(
       appConfig.getTwilioAccountSID(),

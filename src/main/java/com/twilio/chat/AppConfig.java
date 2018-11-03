@@ -17,8 +17,8 @@ public class AppConfig {
         v -> Optional.ofNullable(System.getenv(v.toString()))));
   }
 
-  String getTwilioIPMServiceSID() {
-    return configurations.get(EnvironmentVariable.TWILIO_IPM_SERVICE_SID).orElse("");
+  String getTwilioChatServiceSID() {
+    return configurations.get(EnvironmentVariable.TWILIO_CHAT_SERVICE_SID).orElse("");
   }
 
   String getTwilioAPISecret() {
@@ -43,6 +43,6 @@ public class AppConfig {
   }
 
   enum EnvironmentVariable {
-    TWILIO_IPM_SERVICE_SID, TWILIO_API_SECRET, TWILIO_API_KEY, TWILIO_ACCOUNT_SID
+    TWILIO_CHAT_SERVICE_SID, TWILIO_API_SECRET, TWILIO_API_KEY, TWILIO_ACCOUNT_SID
   }
 }
