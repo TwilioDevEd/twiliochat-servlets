@@ -1,3 +1,8 @@
+.classpath
+.project
+.settings
+.vscode/
+
 *.class
 .mtj.tmp/
 hs_err_pid*

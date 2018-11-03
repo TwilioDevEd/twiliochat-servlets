@@ -126,7 +126,7 @@ var twiliochat = (function() {
       return;
     }
 
-    tc.messagingClient.getPublicChannels().then(function(channels) {
+    tc.messagingClient.getPublicChannelDescriptors().then(function(channels) {
       tc.channelArray = tc.sortChannelsByName(channels.items);
       $channelList.text('');
       tc.channelArray.forEach(addChannel);
