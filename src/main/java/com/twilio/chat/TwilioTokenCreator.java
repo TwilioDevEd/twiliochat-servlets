@@ -17,9 +17,8 @@ public class TwilioTokenCreator {
     }
   }
 
-  String generateToken(String identity, String endpointId) {
+  String generateToken(String identity) {
     ChatGrant grant = new ChatGrant();
-    grant.setEndpointId(endpointId);
     grant.setServiceSid(appConfig.getTwilioChatServiceSID());
 
     AccessToken token = new AccessToken.Builder(

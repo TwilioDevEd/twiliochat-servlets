@@ -13,9 +13,8 @@ import org.junit.Test;
 public class TokenServletTest {
 
   @Test
-  public void shouldNotRequestATokenWhenIdentityAndDeviceAreNotProvided() {
+  public void shouldNotRequestATokenWhenIdentityIsNotProvided() {
     HttpServletRequest mockedServletRequest = mock(HttpServletRequest.class);
-    when(mockedServletRequest.getParameter("device")).thenReturn(null);
     when(mockedServletRequest.getParameter("identity")).thenReturn(null);
 
     HttpServletResponse mockedServletResponse = mock(HttpServletResponse.class);
@@ -26,13 +25,12 @@ public class TokenServletTest {
 
     tokenServlet.doPost(mockedServletRequest, mockedServletResponse);
 
-    verify(mockedTokenCreator, never()).generateToken(anyString(), anyString());
+    verify(mockedTokenCreator, never()).generateToken(anyString());
   }
 
   @Test
-  public void shouldGenerateATokenWhenIdentityAndDeviceAreProvided() throws IOException {
+  public void shouldGenerateATokenWhenIdentityISProvided() throws IOException {
     HttpServletRequest mockedServletRequest = mock(HttpServletRequest.class);
-    when(mockedServletRequest.getParameter("device")).thenReturn("my_device");
     when(mockedServletRequest.getParameter("identity")).thenReturn("me");
 
     HttpServletResponse mockedServletResponse = mock(HttpServletResponse.class);
@@ -44,7 +42,7 @@ public class TokenServletTest {
 
     tokenServlet.doPost(mockedServletRequest, mockedServletResponse);
 
-    verify(mockedTokenCreator, times(1)).generateToken(anyString(), anyString());
+    verify(mockedTokenCreator, times(1)).generateToken(anyString());
 
   }
 }

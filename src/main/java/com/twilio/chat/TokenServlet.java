@@ -26,14 +26,10 @@ public class TokenServlet extends HttpServlet {
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) {
     String identity = request.getParameter("identity");
-    String device = request.getParameter("device");
 
-    if (identity != null && device != null) {
-      // Create an endpoint ID which uniquely identifies the user on their current device
-      String appName = "TwilioChatDemo";
-      String endpointId = appName + ":" + identity + ":" + device;
+    if (identity != null) {
 
-      String generatedToken = tokenCreator.generateToken(identity, endpointId);
+      String generatedToken = tokenCreator.generateToken(identity);
 
       Map<String, String> json = new HashMap<>();
       json.put("identity", identity);
