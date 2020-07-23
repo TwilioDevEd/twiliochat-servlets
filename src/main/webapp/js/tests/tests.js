@@ -30,7 +30,7 @@ describe('TwilioChat', function() {
       var message = {
         body: 'test message',
         author: 'me',
-        timestamp: new Date(),
+        dateCreated: new Date(),
       };
       var messageList = twiliochat.$messageList;
       twiliochat.addMessageToList(message);
